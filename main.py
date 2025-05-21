@@ -7,7 +7,7 @@ import feedparser
 
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 FOOTBALL_API_KEY = os.getenv('FOOTBALL_API_KEY')
-NEWS_FEED = 'https://www.realmadrid.com/en/news/rss'
+NEWS_FEED = 'https://e00-marca.uecdn.es/rss/futbol/real-madrid.xml'
 SUBSCRIBERS_FILE = 'subscribers.json'
 
 bot = Bot(token=TELEGRAM_TOKEN)

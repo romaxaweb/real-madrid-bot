@@ -41,12 +41,17 @@ def translate(text, lang_to="uk"):
 
 def get_news(count=3):
     feed = feedparser.parse(NEWS_FEED)
+    if not feed.entries:
+        # Debug: вивід, чи реально є entries
+        print("DEBUG: RSS feed.entries:", feed.entries)
+        return "Немає новин."
     news_list = []
     for entry in feed.entries[:count]:
         title = translate(entry.title)
         link = entry.link
         news_list.append(f"{title}\n{link}")
     return "\n\n".join(news_list) if news_list else "Немає новин."
+
 
 def get_next_match():
     url = "https://v3.football.api-sports.io/fixtures"
